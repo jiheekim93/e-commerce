@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Grid from '@mui/material/Grid';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { pink } from '@mui/material/colors';
 
 const style = {
@@ -59,6 +61,16 @@ const Show = (props) => {
     seletexaria-label="add to favorites">
         <FavoriteIcon />
        </IconButton>
+
+       <IconButton value="check"
+       selected={selected}
+       onChange={() => {
+       setSelected(!selected);}}
+
+       seletexaria-label="add to cart">
+           <AddShoppingCartIcon />
+          </IconButton>
+
     <Typography>
     <h4>description:</h4>{props.description}
     </Typography>
@@ -67,6 +79,10 @@ const Show = (props) => {
     </Typography><br/>
     <Typography>
       <br/>{props.inStock}
+    </Typography>
+    <Typography>
+      <br/>
+      {props.delivery}
     </Typography>
     </Box>
     </Modal>

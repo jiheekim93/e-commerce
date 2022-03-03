@@ -20,3 +20,12 @@ h2 {
   flex-flow: row wrap;
   margin-top: 3vh;
 }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.trashcan {
+  margin-top: 5px;
+}

@@ -2,13 +2,14 @@ import './App.css';
 import {useState} from 'react';
 import CreateForm from "./pages/CreateForm"
 import Groceries from "./pages/Groceries"
+import Reviews from "./reviews/Reviews"
 import { render } from "react-dom";
 import {
   Routes,
   Route,
   Link,
   useParams
-} from "react-router-dom";
+} from "react-router-dom" ;
 
 const App = () => {
 
@@ -19,11 +20,13 @@ const App = () => {
       <nav>
       <Link to="/home">Home</Link>
       <Link to="/new">Add</Link>
+      <Link to="/review">Review</Link>
       </nav>
     </main>
     <Routes>
     <Route path="/home" element={<Groceries />}/>
     <Route path="/new" element={<CreateForm />}/>
+    <Route path="/review" element={<Reviews />}/>
     </Routes>
     </>
   )
