@@ -1,6 +1,16 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios'
-
+import Show from "./Show"
+import {render} from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useParams,
+} from "react-router-dom";
+import App from "../App";
+import '../css/create.css';
 
 const CreateForm = (props) => {
   const [newName, setNewName] = useState('')
@@ -11,6 +21,7 @@ const CreateForm = (props) => {
   const [newTag, setNewTag] = useState([])
   const [newDelivery, setNewDelivery] = useState(false)
   const [groceries, setGroceries] = useState([])
+  const [filter, setFilter] = useState('')
 
   const handleNewNameChange = (event)=>{
     setNewName(event.target.value);
@@ -38,10 +49,11 @@ const CreateForm = (props) => {
   const handleNewPriceChange = (event)=>{
   setNewPrice(event.target.value);
   }
+
   const handleNewGroceryFormSubmit = (event)=>{
       event.preventDefault();
       axios.post(
-          'http://localhost:3000/groceries',
+          'https://floating-crag-29031.herokuapp.com/groceries',
           {
               name:newName,
               image: newImage,
@@ -52,16 +64,16 @@ const CreateForm = (props) => {
               tag: newTag
           }).then(()=>{
           axios
-              .get('http://localhost:3000/groceries')
+              .get('https://floating-crag-29031.herokuapp.com/groceries')
               .then((response)=>{
                   setGroceries(response.data)
               })
           })
     }
 
-
   return (
     <>
+    <div className = 'new-container'>
     <h2>Create a grocery</h2>
     <form onSubmit={handleNewGroceryFormSubmit}>
       Name: <input type = 'text' onChange={handleNewNameChange}/><br/>
@@ -70,11 +82,12 @@ const CreateForm = (props) => {
       Price: <input type = 'text' onChange={handleNewPriceChange}/><br/>
       In Stock: <input type = 'checkbox' onChange={handleNewStockChange}/><br/>
       Available for Delivery: <input type = 'checkbox' onChange={handleNewDeliveryChange}/><br/>
+      Tag: <input type = 'text' onChange={handleNewTagChange}/><br/>
       <input type = 'submit' value = 'Add grocery' />
       </form>
+      </div>
   </>
   )
-
 };
 
 export default CreateForm;

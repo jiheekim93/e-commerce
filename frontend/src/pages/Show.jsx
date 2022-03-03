@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -30,6 +30,8 @@ const Show = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [selected, setSelected] = useState(false)
+
+
 
 
   return (
@@ -71,7 +73,6 @@ const Show = (props) => {
 
   </>
   )
-
 };
 
 export default Show;
