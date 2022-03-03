@@ -20,7 +20,7 @@ const Groceries = () => {
     .then((response)=>{
       setGroceries(response.data);
     })
-  },[])
+  }, [])
 
   const handleDelete = (groceryData)=>{
     axios
@@ -51,7 +51,7 @@ const Groceries = () => {
       {
         groceries.filter((search) =>
         search.name.toLowerCase().includes(filter.toLowerCase())).map((grocery)=>{
-          return <div key = {grocery._id} >
+          return (<div key = {grocery._id} >
           <div className = 'groceryDiv'>
           {<li className = 'groceryName'>{grocery.name}</li>}
 
@@ -64,7 +64,7 @@ const Groceries = () => {
           inStock = {grocery.inStock ? <li>In Stock</li> : <li>Out of Stock</li>}
           delivery = {grocery.delivery ? <li>Delivery: Available</li> : <li>Delivery: Unavailable</li>}/>
 
-          <Edit />
+          <Edit setGroceries={setGroceries} groceries={groceries} grocery={grocery}/>
 
           <Grid>
           <Grid item xs={8}>
@@ -72,16 +72,12 @@ const Groceries = () => {
           </Grid>
           </Grid>
           </div>
-
           </div>
-
           </div>
-
+          )
         })
       }
       </div>
-
-
       </>
     )
   }

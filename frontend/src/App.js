@@ -18,13 +18,13 @@ const App = () => {
     <main>
       <h1>Lily and Jihee GROCERY</h1>
       <nav>
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
       <Link to="/new">Add</Link>
       <Link to="/review">Review</Link>
       </nav>
     </main>
     <Routes>
-    <Route path="/home" element={<Groceries />}/>
+    <Route path="/" element={<Groceries />}/>
     <Route path="/new" element={<CreateForm />}/>
     <Route path="/review" element={<Reviews />}/>
     </Routes>

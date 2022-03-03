@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -34,7 +34,6 @@ const Edit = (props) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [selected, setSelected] = useState(false)
-
   const [newName, setNewName] = useState('')
   const [newDescription, setNewDescription] = useState('');
   const [newImage, setNewImage] = useState('')
@@ -42,7 +41,7 @@ const Edit = (props) => {
   const [newStock, setNewStock] = useState(false);
   const [newTag, setNewTag] = useState([])
   const [newDelivery, setNewDelivery] = useState(false)
-  const [groceries, setGroceries] = useState([])
+
 
   const handleNewNameChange = (event)=>{
     setNewName(event.target.value);
@@ -67,6 +66,7 @@ const Edit = (props) => {
   const handleNewImageChange = (event)=>{
   setNewImage(event.target.value);
   }
+
   const handleNewPriceChange = (event)=>{
   setNewPrice(event.target.value);
   }
@@ -74,27 +74,25 @@ const Edit = (props) => {
   const handleToggleStock = (groceryData)=>{
       axios
           .put(
-              `https://floating-crag-29031.herokuapp.com/groceries/${groceryData._id}`,
+              `http://localhost:3000/groceries/${groceryData?._id}`,
               {
-                  name: groceryData.name,
-                  image: groceryData.image,
-                  description:groceryData.description,
-                  price: groceryData.price,
-                  inStock:!groceryData.inStock,
-                  delivery: !groceryData.delivery,
-                  tag: groceryData.tag
+                  name: newName,
+                  image: newImage,
+                  description:newDescription,
+                  price: newPrice,
+                  inStock:!newStock,
+                  delivery:!newDelivery,
+                  tag: newTag
               }
           )
           .then(()=>{
               axios
-                  .get('https://floating-crag-29031.herokuapp.com/groceries')
+                  .get('http://localhost:3000/groceries')
                   .then((response)=>{
-                      setGroceries(response.data)
+                    props.setGroceries(response.data)
                   })
           })
   }
-
-
 
   return (
     <>
@@ -110,7 +108,7 @@ const Edit = (props) => {
     <Typography id="modal-modal-title" variant="h6" component="h2">
     <h2>Edit a grocery</h2>
     <div className = "edit-container">
-    <form onSubmit={handleToggleStock}>
+    <form onSubmit={(e)=>{e.preventDefault();handleToggleStock(props.grocery)}}>
       Name: <input type = 'text' onChange={handleNewNameChange}/><br/>
       Image URL: <input type = 'text' onChange={handleNewImageChange}/><br/>
       Description: <input type = 'text' onChange={handleNewDescriptionChange}/><br/>

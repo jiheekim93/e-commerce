@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios'
-import Show from "./Show"
 import {render} from "react-dom";
 import {
   BrowserRouter,
@@ -9,7 +8,6 @@ import {
   Link,
   useParams,
 } from "react-router-dom";
-import App from "../App";
 import '../css/create.css';
 
 const CreateForm = (props) => {

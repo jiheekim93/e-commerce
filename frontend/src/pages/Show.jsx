@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { pink } from '@mui/material/colors';
+
 
 const style = {
   position: 'absolute',
@@ -21,19 +21,30 @@ const style = {
   p: 4,
   };
 
-const button = {
-  color: 'red'
-}
-
-
 
 const Show = (props) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [selected, setSelected] = useState(false)
+  const [heartColor, setHeartColor] = useState('grey')
+  const [cartColor, setCartColor] = useState('grey')
 
+  const heartColorChange = () => {
+    if (heartColor === 'grey') {
+      setHeartColor('red')
+    }else {
+      setHeartColor('grey')
+    }
+  }
 
+  const cartColorChange = () => {
+    if (cartColor === 'grey') {
+      setCartColor('blue')
+    }else {
+      setCartColor('grey')
+    }
+  }
 
 
   return (
@@ -57,18 +68,18 @@ const Show = (props) => {
     selected={selected}
     onChange={() => {
     setSelected(!selected);}}
-
+    onClick = {heartColorChange}
     seletexaria-label="add to favorites">
-        <FavoriteIcon />
+        <FavoriteIcon style={{color: heartColor}}/>
        </IconButton>
 
        <IconButton value="check"
        selected={selected}
        onChange={() => {
        setSelected(!selected);}}
-
+       onClick = {cartColorChange}
        seletexaria-label="add to cart">
-           <AddShoppingCartIcon />
+      <AddShoppingCartIcon style={{color: cartColor}}/>
           </IconButton>
 
     <Typography>
