@@ -16,7 +16,9 @@ const App = () => {
   return (
       <>
     <main>
+
       <h1>Lily and Jihee GROCERY</h1>
+      <div id="google_translate_element"></div>  
       <nav>
       <Link to="/">Home</Link>
       <Link to="/new">Add</Link>

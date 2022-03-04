@@ -16,3 +16,7 @@ nav {
   justify-content: center;
   gap: 20%;
 }
+
+.goog-te-gadget-simple span{
+  display: none;
+}

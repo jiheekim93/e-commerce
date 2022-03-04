@@ -61,8 +61,8 @@ const Groceries = () => {
           <Show name = {grocery.name} image = {grocery.image}
           description = {grocery.description}
           tag = {grocery.tag}
-          inStock = {grocery.inStock ? <li>In Stock</li> : <li>Out of Stock</li>}
-          delivery = {grocery.delivery ? <li>Delivery: Available</li> : <li>Delivery: Unavailable</li>}/>
+          inStock = {grocery.inStock ? <li>Out of Stock</li> : <li>In Stock</li>}
+          delivery = {grocery.delivery ? <li>Delivery: Unavailable</li> : <li>Delivery: Available</li>}/>
 
           <Edit setGroceries={setGroceries} groceries={groceries} grocery={grocery}/>
 
