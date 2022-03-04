@@ -6,17 +6,46 @@ li {
   list-style-type: none;
 }
 
+h1 {
+  text-align: center;
+  padding: 10px;
+}
 
 .groceryDiv {
   width: 250px;
 }
 
-nav {
+main {
+  background-color: yellow;
+  position: fixed;
+  z-index: 222;
+  width: 100%;
+}
+
+.nav {
+  position: fixed;
   display: flex;
-  justify-content: center;
-  gap: 20%;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5%;
+  padding-bottom: 3%;
+  background-color: yellow;
+  width: 100%;
+  font-size: 1.5em;
+  opacity: 0.96;
+  top: 10%;
+  padding-left: 5%;
 }
 
 .goog-te-gadget-simple span{
   display: none;
+}
+.goog-te-gadget-simple {
+  margin-top: 30px;
+}
+
+.menu {
+  text-decoration: none;
+  color: black;
+  padding-top: 30px;
 }

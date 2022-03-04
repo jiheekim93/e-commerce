@@ -44,9 +44,8 @@ const Reviews = () => {
 
     return (
       <>
-      <h2>Review</h2>
-      <div className = "review-container">
 
+      <div className = "review-container">
       <div className = "info-container">
       {
         reviews.map((review)=>{

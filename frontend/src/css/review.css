@@ -1,8 +1,9 @@
 .info-container {
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 25%;
+
 }
 
 .review-form {
@@ -10,7 +11,7 @@
   flex-direction: column;
   width: 50%;
   margin-left: 25%;
-  margin-top: 10%;
+  margin-top: 40vh;
 }
 
 .review-container form {

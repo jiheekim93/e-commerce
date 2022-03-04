@@ -16,14 +16,15 @@ const App = () => {
   return (
       <>
     <main>
-
-      <h1>Lily and Jihee GROCERY</h1>
-      <div id="google_translate_element"></div>  
-      <nav>
-      <Link to="/">Home</Link>
-      <Link to="/new">Add</Link>
-      <Link to="/review">Review</Link>
-      </nav>
+      <div className = "logo">
+      <h1>Seoul Sisters</h1>
+      </div>
+      <div className ="nav">
+      <Link className = "menu" to="/">Home</Link>
+      <Link className = "menu" to="/new">Add</Link>
+      <Link className = "menu" to="/review">Review</Link>
+      <div id="google_translate_element"></div>
+      </div>
     </main>
     <Routes>
     <Route path="/" element={<Groceries />}/>

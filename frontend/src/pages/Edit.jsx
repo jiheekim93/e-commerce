@@ -38,6 +38,7 @@ const Edit = (props) => {
   const [newDelivery, setNewDelivery] = useState(false)
   const [newStock, setNewStock] = useState(false);
 
+
   const handleNewNameChange = (event)=>{
     setNewName(event.target.value);
   }
@@ -67,6 +68,7 @@ const Edit = (props) => {
   const handleNewPriceChange = (event)=>{
   setNewPrice(event.target.value);
   }
+
 
 
 
@@ -108,12 +110,19 @@ const Edit = (props) => {
     <h2>Edit a grocery</h2>
     <div className = "edit-container">
     <form onSubmit={(e)=>{e.preventDefault();handleToggleEdit(props.grocery)}}>
-      Name: <input type = 'text' onChange={handleNewNameChange}/><br/>
+      Name: <input type = 'text' onChange={handleNewNameChange} /><br/>
+
       Image URL: <input type = 'text' onChange={handleNewImageChange}/><br/>
+
       Description: <input type = 'text' onChange={handleNewDescriptionChange}/><br/>
+
       Price: <input type = 'text' onChange={handleNewPriceChange}/><br/>
-      In Stock: <input type = 'checkbox' checked = {newStock}  onChange={handleNewStockChange}/><br/>
+
+      In Stock: <input type = 'checkbox' checked = {newStock}
+      onChange={handleNewStockChange}/><br/>
+
       Available for Delivery: <input type = 'checkbox' checked = {newDelivery} onChange={handleNewDeliveryChange}/><br/>
+
       Tag: <input type = 'text' onChange={handleNewTagChange}/><br/>
       <input type = 'submit' value = 'Edit grocery' />
       </form>

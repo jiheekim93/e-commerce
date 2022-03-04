@@ -71,7 +71,7 @@ const CreateForm = (props) => {
 
   return (
     <>
-    <div className = 'new-container'>
+    <div className = 'new-form'>
     <h2>Create a grocery</h2>
     <form onSubmit={handleNewGroceryFormSubmit}>
       Name: <input type = 'text' onChange={handleNewNameChange}/><br/>

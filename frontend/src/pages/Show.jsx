@@ -81,7 +81,10 @@ const Show = (props) => {
        seletexaria-label="add to cart">
       <AddShoppingCartIcon style={{color: cartColor}}/>
           </IconButton>
-
+    <Typography>
+      <br/>
+    <h4>price:</h4> {props.price}
+    </Typography>
     <Typography>
     <h4>description:</h4>{props.description}
     </Typography>
@@ -91,6 +94,7 @@ const Show = (props) => {
     <Typography>
       <br/>{props.inStock}
     </Typography>
+
     <Typography>
       <br/>
       {props.delivery}
