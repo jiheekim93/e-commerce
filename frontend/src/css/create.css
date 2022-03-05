@@ -3,6 +3,8 @@
   flex-direction: column;
   width: 50%;
   margin-left: 25%;
+  margin-top: 30vh;
+
 }
 
 .new-form form {
@@ -10,5 +12,4 @@
   flex-direction: column;
   width: 50%;
   margin-left: 25%;
-  margin-top: 30vh;
 }

@@ -1,5 +1,3 @@
-
-
 h2 {
   text-align: center;
 }
@@ -9,35 +7,18 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 1vw;
-
-}
-
-.searchBar {
-  margin-bottom: 5px;
-  position: fixed;
-  z-index: 333;
-  top: 12%;
-  left: 65%;
 }
 
 .searchBar input{
-  margin-top: 1.5vh;
+  margin-top: 2vh;
 }
-
-
-.searchInput  {
-  width: 30vw;
-  height: 1.5em;
-  margin-bottom:
-}
-
 
 .groceryContainer {
   display: flex;
   justify-content: center;
-  gap: 5vw;
+  gap: 4vw;
   flex-flow: row wrap;
-  margin-top: 30vh;
+  margin-bottom: 5vh;
 }
 
 .buttons {
@@ -47,4 +28,19 @@ h2 {
 
 .trashcan {
   margin-top: 5px;
+  transition-duration: 0.2s;
+}
+
+.trashcan:hover {
+  transform: scale(1.05);
+}
+
+.editIcon {
+  background: transparent;
+
+}
+
+.MuiButton-root {
+  display: none;
+  text-transform: lowercase;
 }

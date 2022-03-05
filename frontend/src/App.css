@@ -1,51 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background: #daf2df;
+  font-family: 'Nunito', sans-serif;
+  color: #15392f;
+}
+
 img {
   width: 250px;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 li {
   list-style-type: none;
 }
 
-h1 {
-  text-align: center;
-  padding: 10px;
-}
-
 .groceryDiv {
   width: 250px;
+  /* background: #F2DADE; */
+  /* background: #F2D7CE; */
+  background: #F2F1DA;
+  /* background: #FFE6BF; */
+  border: 2px solid #eba743;
+  border-radius: 5px;
+  padding-top: 2vh;
 }
 
-main {
-  background-color: yellow;
-  position: fixed;
-  z-index: 222;
-  width: 100%;
+.groceryName {
+  text-align: center;
+
 }
 
-.nav {
-  position: fixed;
+.groceryPrice {
+  margin-left: 2vw;
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #7d0202;
+}
+
+nav {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 5%;
-  padding-bottom: 3%;
-  background-color: yellow;
-  width: 100%;
-  font-size: 1.5em;
-  opacity: 0.96;
-  top: 10%;
-  padding-left: 5%;
+  justify-content: flex-end;
+  gap: 5vw;
+  margin-right: 5vw;
 }
 
-.goog-te-gadget-simple span{
+.skiptranslate {
+
+}
+
+.goog-te-gadget-simple nav{
+
+  padding: 5px;
+  border-radius: 10px;
+  background: transparent;
+}
+
+#google_translate_element {
+  background: transparent;
+}
+
+span {
   display: none;
 }
-.goog-te-gadget-simple {
-  margin-top: 30px;
+
+.logoAnchor {
+  width: min(20%, 100px);
+  margin-right: 2vw;
 }
 
-.menu {
+.logo {
+  width: min(100%, 100px);
+
+}
+
+.logoDiv {
+  display: flex;
+  flex-direction: row;
+  /* gap: 2vw; */
+  margin-left: 2vw;
+  padding-top: 1vh;
+  margin-bottom: 2vh;
+  justify-content: space-between;
+}
+
+.logoName {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.appName {
+  /* text-align: center; */
+  align-self: center;
+  width: min(80%, 550px)
+}
+
+.searchInput {
+  height: 30px;
+  width: 200px;
+  margin-left: 70vw;
+  /* align-self: center; */
+  border-radius: 8px;
+  position: fixed;
+  z-index: 1000;
+  /* margin-top: 10vh; */
+  bottom: 89vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.searchInput2 {
+  height: 30px;
+  width: 200px;
+  margin-left: 70vw;
+  /* align-self: center; */
+  border-radius: 8px;
+  position: fixed;
+  z-index: 1000;
+  /* margin-top: 10vh; */
+  bottom: 90.75vh;
+  font-family: 'Nunito', sans-serif;
+}
+
+.link {
   text-decoration: none;
   color: black;
-  padding-top: 30px;
+  transition-duration: 0.4s;
+  font-weight: 700;
+}
+
+.link:hover {
+  transform: scale(1.1);
+  color: white;
+
+}
+
+.headerDiv {
+  background: #b4dbbb;
+  position: fixed;
+  top: 0;
+  opacity: 0.96;
+  width: 100%;
+  z-index: 999;
+}
+
+.navBar {
+  padding-bottom: 1vh;
+
+}
+
+.body {
+  margin-top: 18vh;
+}
+
+.new-container, .reviewDiv {
+  margin-top: 25vh;
+}
+
+.button {
+  color: black;
+}
+
+.groceryName {
+  padding: 0 1vw 1vw 1vw;
+  font-size: 1.1em;
+  font-weight: 800;
+
+}
+
+.ourProducts {
+  font-size: 1.2em;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 5vh;
+}
+
+.trashIcon {
+  /* transition-duration: 0.3s; */
+}
+
+.trashIcon:hover {
+  transform: scale(1.1);
+  color: #eb9a86;
+  cursor: pointer;
+}
+
+.middleImageDiv {
+  width: 100vw;
+  text-align: center;
+}
+
+.middleImage {
+  width: min(100vw, 1250px);
+
+}
+
+.groceryContainerDiv {
+  display:flex;
+  flex-direction: column;
+}
+
+footer {
+  background: #b4dbbb;
+  padding-top: 1vh;
+}
+
+.footerUL {
+  display: flex;
+  flex-direction: row;
+  gap: 8vw;
+  justify-content: center;
+  margin-bottom: 3vh;
+}
+
+.footerLogoDiv {
+  text-align: center;
+}
+
+.footerLogo {
+  width: min(15%, 100px);
+
+}
+
+.footerLI {
+  align-self: center;
+  font-weight: 700;
+  font-size: .9em;
+  transition-duration: 0.3s
+}
+
+.footerLI:hover {
+  cursor: pointer;
+  color: #F2F1DA;
+}
+
+.socialIconsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4vw;
+  margin-bottom: 3vh;
+}
+
+.socialIcon {
+  transition-duration: 0.4s;
+}
+
+.socialIcon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.new-container {
+  margin-top: 30vh;
+  margin-bottom: 20vh;
+}
+
+.addInput {
+  padding: 8px;
+  /* border-radius: 5px; */
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.addInput2 {
+  padding: 8px;
+  /* border-radius: 5px; */
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.stockDelivery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+
+
+.stockCheck {
+  font-weight: 600;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+.submitButton {
+  padding: 8px;
+  width: 200px;
+  align-self: center;
+  background: #F2F1DA;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  transition-duration: 0.3s;
+  font-weight: 600;
+}
+
+.submitButton:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background: #eba743;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.showModal {
+  background: #F2F1DA;
+  font-family: 'Nunito', sans-serif;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.carousel {
+  display: none;
+
+}
+
+.carousel-slider {
+  display: block;
+
+}
+
+.filler {
+  height: 363px;
+  background: #FFF7C9;
 }

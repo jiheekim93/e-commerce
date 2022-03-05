@@ -9,16 +9,19 @@ import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
+
 const style = {
+
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-  bgcolor: 'background.paper',
+
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+
   };
 
 
@@ -49,7 +52,7 @@ const Show = (props) => {
 
   return (
     <>
-    <Button onClick={handleOpen}>Show Item</Button>
+    <Button style = {{color: 'black', fontFamily: 'Helvetica'}} onClick={handleOpen}>Item Details</Button>
     <Modal
     open={open}
     style={{background: 'transparent'}}
@@ -57,12 +60,12 @@ const Show = (props) => {
     aria-labelledby="modal-modal-title"
     aria-describedby="modal-modal-description"
     >
-    <Box sx={style}>
+    <Box className = 'showModal' sx={style}>
     <Typography id="modal-modal-title" variant="h6" component="h2">
     <h2>{props.name}</h2>
     </Typography>
     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-    <img src = {props.image}></img>
+    <img className = 'modalImage' src = {props.image}></img>
     </Typography>
     <IconButton value="check"
     selected={selected}
@@ -81,10 +84,7 @@ const Show = (props) => {
        seletexaria-label="add to cart">
       <AddShoppingCartIcon style={{color: cartColor}}/>
           </IconButton>
-    <Typography>
-      <br/>
-    <h4>price:</h4> {props.price}
-    </Typography>
+
     <Typography>
     <h4>description:</h4>{props.description}
     </Typography>
@@ -94,7 +94,6 @@ const Show = (props) => {
     <Typography>
       <br/>{props.inStock}
     </Typography>
-
     <Typography>
       <br/>
       {props.delivery}

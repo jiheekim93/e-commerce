@@ -7,6 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import axios from 'axios'
 import '../css/edit.css';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 
@@ -38,7 +39,6 @@ const Edit = (props) => {
   const [newDelivery, setNewDelivery] = useState(false)
   const [newStock, setNewStock] = useState(false);
 
-
   const handleNewNameChange = (event)=>{
     setNewName(event.target.value);
   }
@@ -69,13 +69,21 @@ const Edit = (props) => {
   setNewPrice(event.target.value);
   }
 
+  const handleEditValue = (groceryData) => {
+    setNewName(groceryData.name)
+    setNewImage(groceryData.image)
+    setNewDescription(groceryData.description)
+    setNewPrice(groceryData.price)
+    setNewTag(groceryData.tag)
+
+  }
 
 
 
   const handleToggleEdit = (groceryData)=>{
       axios
           .put(
-              `http://localhost:3000/groceries/${groceryData?._id}`,
+              `https://stark-shelf-08940.herokuapp.com/groceries/${groceryData?._id}`,
               {
                   name: newName,
                   image: newImage,
@@ -88,7 +96,7 @@ const Edit = (props) => {
           )
           .then(()=>{
               axios
-                  .get('http://localhost:3000/groceries')
+                  .get('https://stark-shelf-08940.herokuapp.com/groceries')
                   .then((response)=>{
                     props.setGroceries(response.data)
                   })
@@ -97,7 +105,7 @@ const Edit = (props) => {
 
   return (
     <>
-    <Button onClick={handleOpen}>Edit</Button>
+    <Button onClick={handleOpen}><EditIcon className = 'editIcon' style = {{color: "black"}}/></Button>
     <Modal
     open={open}
     style={{background: 'transparent'}}
@@ -110,19 +118,12 @@ const Edit = (props) => {
     <h2>Edit a grocery</h2>
     <div className = "edit-container">
     <form onSubmit={(e)=>{e.preventDefault();handleToggleEdit(props.grocery)}}>
-      Name: <input type = 'text' onChange={handleNewNameChange} /><br/>
-
+      Name: <input type = 'text' onChange={handleNewNameChange}/><br/>
       Image URL: <input type = 'text' onChange={handleNewImageChange}/><br/>
-
       Description: <input type = 'text' onChange={handleNewDescriptionChange}/><br/>
-
       Price: <input type = 'text' onChange={handleNewPriceChange}/><br/>
-
-      In Stock: <input type = 'checkbox' checked = {newStock}
-      onChange={handleNewStockChange}/><br/>
-
+      In Stock: <input type = 'checkbox' checked = {newStock}  onChange={handleNewStockChange}/><br/>
       Available for Delivery: <input type = 'checkbox' checked = {newDelivery} onChange={handleNewDeliveryChange}/><br/>
-
       Tag: <input type = 'text' onChange={handleNewTagChange}/><br/>
       <input type = 'submit' value = 'Edit grocery' />
       </form>
