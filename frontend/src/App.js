@@ -95,7 +95,12 @@ const App = () => {
         <GitHubIcon className = 'socialIcon' style = {{color: '#171515'}}/>
         <LinkedInIcon className = 'socialIcon' style = {{color: '#0e76a8'}}/>
       </div>
-
+      <div className = "creators">
+      <p>created by</p>
+      <a href="https://www.linkedin.com/in/lilychen910/" target="_blank">©Lily Chen</a>
+      <p>&</p>
+      <a href="https://www.linkedin.com/in/jiheekim03/" target="_blank">©Jihee Kim</a>
+      </div>
       <div className = 'footerLogoDiv'>
       <img className = 'footerLogo' src = 'https://i.imgur.com/syW8iwL.png?1'></img>
       </div>

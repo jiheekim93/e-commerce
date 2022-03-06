@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-
+import Nunito from '../Nunito/static/Nunito-Bold.ttf'
 
 
 const style = {
@@ -17,7 +17,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 600,
-
+  fontFamily: 'Nunito-Bold',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -52,7 +52,7 @@ const Show = (props) => {
 
   return (
     <>
-    <Button style = {{color: 'black', fontFamily: 'Helvetica'}} onClick={handleOpen}>Item Details</Button>
+    <Button style = {{color: 'black', fontFamily: 'Nunito', fontWeight: 'bold', backgroundColor: 'transparent'}} onClick={handleOpen}>Item Details</Button>
     <Modal
     open={open}
     style={{background: 'transparent'}}

@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -105,7 +105,8 @@ const Edit = (props) => {
 
   return (
     <>
-    <Button onClick={handleOpen}><EditIcon className = 'editIcon' style = {{color: "black"}}/></Button>
+    <Grid item xs={3} className = 'editButton' onClick={handleOpen}>
+    <EditIcon className = 'editIcon'/></Grid>
     <Modal
     open={open}
     style={{background: 'transparent'}}

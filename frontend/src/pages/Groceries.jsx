@@ -68,23 +68,28 @@ const Groceries = () => {
         search.name.toLowerCase().includes(filter.toLowerCase())).map((grocery)=>{
           return (<div key = {grocery._id} >
             <div className = 'groceryDiv'>
-            {<li className = 'groceryName'>{grocery.name}</li>}
+            <li className = 'groceryName'>{grocery.name}</li>
 
-            {<img src = {grocery.image} />}
-            {<li className = 'groceryPrice'>{grocery.price}</li>}
+            <img src = {grocery.image} />
 
-            <div className = "buttons">
-            <Show name = {grocery.name} image = {grocery.image}
+            <li className = 'groceryPrice'>{grocery.price}<Show name = {grocery.name} image = {grocery.image}
             description = {grocery.description}
             tag = {grocery.tag}
             inStock = {grocery.inStock ? <li>Out of Stock</li> : <li>In Stock</li>}
             delivery = {grocery.delivery ? <li>Delivery: Unavailable</li> : <li>Delivery: Available</li>}/>
+            </li>
+
+
+
+            <div className = "buttons">
 
             <Edit setGroceries={setGroceries} groceries={groceries} grocery={grocery}/>
 
             <Grid>
-            <Grid item xs={8}>
-            <div className = "trashcan" onClick={ (event)=>{ handleDelete(grocery) } }> <DeleteRoundedIcon className = 'trashIcon'/></div>
+            <Grid>
+            <div className = "trashcan"
+           onClick={ (event)=>{ handleDelete(grocery) } }> <DeleteRoundedIcon
+           className = 'trashIcon'/></div>
             </Grid>
             </Grid>
             </div>

@@ -33,10 +33,13 @@ li {
 }
 
 .groceryPrice {
-  margin-left: 2vw;
+  margin-left: 3vw;
   font-size: 1.2em;
   font-weight: 700;
   color: #7d0202;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 nav {
@@ -46,22 +49,19 @@ nav {
   margin-right: 5vw;
 }
 
-.skiptranslate {
 
+
+.goog-te-gadget-simple {
+  border: none;
+  background-color: transparent;
+  outline: none !important;
+  margin: 0;
+  position: relative;
+  bottom: 1vh;
 }
 
-.goog-te-gadget-simple nav{
 
-  padding: 5px;
-  border-radius: 10px;
-  background: transparent;
-}
-
-#google_translate_element {
-  background: transparent;
-}
-
-span {
+.goog-te-gadget span{
   display: none;
 }
 
@@ -176,11 +176,32 @@ span {
   margin-top: 5vh;
 }
 
-.trashIcon {
-  /* transition-duration: 0.3s; */
-}
+
 
 .trashIcon:hover {
+  transform: scale(1.1);
+  color: #eb9a86;
+  cursor: pointer;
+}
+
+.editButton {
+  position: relative;
+  top: 4px;
+  background-color: transparent;
+  background: none;
+  transition-duration: 0.2s;
+}
+
+.editButton:hover {
+  position: relative;
+  top: 4px;
+
+  transform: scale(1.05);
+}
+
+
+
+.editIcon:hover {
   transform: scale(1.1);
   color: #eb9a86;
   cursor: pointer;
@@ -204,6 +225,7 @@ span {
 footer {
   background: #b4dbbb;
   padding-top: 1vh;
+  padding-bottom: 10px;
 }
 
 .footerUL {
@@ -216,11 +238,14 @@ footer {
 
 .footerLogoDiv {
   text-align: center;
+  position: relative;
+  bottom: 1.5vh;
+  padding-bottom: 1vh;
+
 }
 
 .footerLogo {
-  width: min(15%, 100px);
-
+  width: min(13%, 90px);
 }
 
 .footerLI {
@@ -233,6 +258,20 @@ footer {
 .footerLI:hover {
   cursor: pointer;
   color: #F2F1DA;
+}
+
+
+.creators {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.creators a {
+  text-decoration: none;
+  color: #15392f;
+  align-self: center;
 }
 
 .socialIconsDiv {

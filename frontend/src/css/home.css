@@ -24,20 +24,18 @@ h2 {
 .buttons {
   display: flex;
   justify-content: center;
+  margin-right: 1.5vw;
 }
 
 .trashcan {
+  position: relative;
+  left: 6px;
   margin-top: 5px;
   transition-duration: 0.2s;
 }
 
 .trashcan:hover {
   transform: scale(1.05);
-}
-
-.editIcon {
-  background: transparent;
-
 }
 
 .MuiButton-root {
