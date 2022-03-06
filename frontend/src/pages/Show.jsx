@@ -8,6 +8,7 @@ import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Nunito from '../Nunito/static/Nunito-Bold.ttf'
+import '../css/show.css';
 
 
 const style = {
@@ -61,12 +62,13 @@ const Show = (props) => {
     aria-describedby="modal-modal-description"
     >
     <Box className = 'showModal' sx={style}>
-    <Typography id="modal-modal-title" variant="h6" component="h2">
-    <h2>{props.name}</h2>
+    <Typography  variant="h6" component="h2">
+    <h2 className = "showName">{props.name}</h2>
     </Typography>
-    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-    <img className = 'modalImage' src = {props.image}></img>
+    <Typography  className = 'modalImage' sx={{ mt: 2 }}>
+    <img src = {props.image}></img>
     </Typography>
+    <Typography className = "heartAndCart">
     <IconButton value="check"
     selected={selected}
     onChange={() => {
@@ -84,19 +86,24 @@ const Show = (props) => {
        seletexaria-label="add to cart">
       <AddShoppingCartIcon style={{color: cartColor}}/>
           </IconButton>
-
-    <Typography>
-    <h4>description:</h4>{props.description}
+      </Typography>
+    <Typography style = {{marginLeft: '8%'}}>
+    <Typography style= {{fontFamily:"Nunito"}}>
+      <br/><h4 className = "showInfo">price:</h4>{props.price}
+    </Typography>
+    <Typography style={{fontFamily:"Nunito"}}>
+    <h4 className = "showInfo">description:</h4>{props.description}
     </Typography>
     <Typography>
-      <h4>tags:</h4> {props.tag}
+      <h4 className = "showInfo">tags:</h4> {props.tag}
     </Typography><br/>
-    <Typography>
-      <br/>{props.inStock}
+    <Typography style={{fontFamily:"Nunito", fontWeight:"700"}}>
+      <br/><p className = "showInfo">{props.inStock}</p>
     </Typography>
-    <Typography>
+    <Typography style={{fontFamily:"Nunito", fontWeight:"700"}}>
       <br/>
       {props.delivery}
+    </Typography>
     </Typography>
     </Box>
     </Modal>

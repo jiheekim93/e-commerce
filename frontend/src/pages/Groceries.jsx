@@ -73,6 +73,7 @@ const Groceries = () => {
             <img src = {grocery.image} />
 
             <li className = 'groceryPrice'>{grocery.price}<Show name = {grocery.name} image = {grocery.image}
+            price = {grocery.price}
             description = {grocery.description}
             tag = {grocery.tag}
             inStock = {grocery.inStock ? <li>Out of Stock</li> : <li>In Stock</li>}

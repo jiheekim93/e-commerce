@@ -1,0 +1,19 @@
+.modalImage {
+  text-align: center;
+}
+
+.showName {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+
+.heartAndCart {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 162px;
+}
+
+.showInfo {
+  font-family: 'Nunito', sans-serif;
+
+}

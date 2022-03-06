@@ -80,7 +80,6 @@ const App = () => {
     <footer>
 
       <ul className = 'footerUL'>
-
         <li  className = 'footerLI'>About</li>
         <li  className = 'footerLI'>Legal Terms</li>
         <li  className = 'footerLI'>Privacy Statement</li>

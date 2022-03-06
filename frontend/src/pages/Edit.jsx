@@ -54,7 +54,6 @@ const Edit = (props) => {
 
   const handleNewDeliveryChange = (event)=>{
   setNewDelivery(event.target.checked);
-   console.log(newDelivery)
   }
 
   const handleNewTagChange = (event)=>{
