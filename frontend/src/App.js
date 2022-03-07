@@ -15,6 +15,7 @@ import Show from "./pages/Show"
 import axios from 'axios'
 import './css/home.css';
 import Edit from "./pages/Edit"
+import Login from "./pages/Login"
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -25,9 +26,14 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
+
 const App = () => {
+
   const [filter, setFilter] = useState('')
   const [groceries, setGroceries] = useState([])
+
+
+
 
   useEffect(()=>{
     axios
@@ -36,6 +42,11 @@ const App = () => {
       setGroceries(response.data);
     })
   }, [])
+
+
+
+
+
 
   const handleDelete = (groceryData)=>{
     axios
@@ -51,6 +62,7 @@ const App = () => {
 
   return (
       <>
+
     <main>
       <div className = 'headerDiv'>
       <div className = 'logoDiv'>
@@ -64,10 +76,12 @@ const App = () => {
       <Link className = 'link' to="/">Home</Link>
       <Link className = 'link' to="/review">Reviews</Link>
       <Link className = 'link' to="/new">Add Item</Link>
-
+      <Login />
       <div id="google_translate_element"></div>
+
       </nav>
       </div>
+
     </main>
 
 
