@@ -1,15 +1,14 @@
-.new-form {
+.new-container {
   display: flex;
   flex-direction: column;
   width: 50%;
   margin-left: 25%;
-  margin-top: 30vh;
-
 }
 
-.new-form form {
+
+.new-container form {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin-left: 25%;
+  align-self: center;
+  width: clamp(300px, 80%, 500px);
 }

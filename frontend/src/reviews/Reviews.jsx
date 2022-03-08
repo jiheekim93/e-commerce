@@ -1,3 +1,5 @@
+
+
 import {useState, useEffect} from 'react';
 import axios from 'axios'
 import {render} from "react-dom";
@@ -46,9 +48,13 @@ const Reviews = () => {
 
     return (
       <>
-      <input className = 'searchInput2' type="text" placeholder="search..." value={filter} onChange={(e) => {e.preventDefault(); setFilter(e.target.value);
+      <div className = 'searchDiv'>
+      <input className = 'searchInput' type="text" placeholder="search..." value={filter} onChange={(e) => {e.preventDefault(); setFilter(e.target.value);
       }}
       ></input>
+      <img className = 'search-picshow' src = 'https://www.freeiconspng.com/thumbs/magnifying-glass-icon/magnifying-glass-icon-13.png'></img>
+      </div>
+
       <div className = 'reviewDiv'>
       <h2>Reviews</h2>
       <div className = "review-container">
@@ -57,7 +63,11 @@ const Reviews = () => {
       {
         reviews.filter((search) =>
         search.name.toLowerCase().includes(filter.toLowerCase())).map((review)=>{
-          return <div class = 'reviewContainer' key = {review._id} >
+
+          if (!review.image) {
+            review.image = 'https://i.imgur.com/KH2GvHe.png'
+          }
+          return <div className = 'reviewContainer' key = {review._id} >
           {<h3>Name: {review.name}</h3>}
           {<h4>Subject: {review.subject}</h4>}
           {<li><img className = 'reviewImage' src = {review.image}/></li>}

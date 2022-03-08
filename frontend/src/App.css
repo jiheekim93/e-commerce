@@ -12,9 +12,15 @@ img {
   margin-bottom: 1vh;
 }
 
+a {
+  /* text-decoration: none; */
+  color: #15392f;
+}
+
 li {
   list-style-type: none;
 }
+
 
 .groceryDiv {
   width: 250px;
@@ -33,35 +39,139 @@ li {
 }
 
 .groceryPrice {
-  margin-left: 3vw;
+  /* margin-left: 2vw; */
   font-size: 1.2em;
-  font-weight: 700;
+  font-weight: 800;
   color: #7d0202;
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 nav {
   display: flex;
-  justify-content: flex-end;
-  gap: 5vw;
-  margin-right: 5vw;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.loginButton {
+  padding: 8px;
+  /* width: 200px; */
+  align-self: center;
+  background: #F2F1DA;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  transition-duration: 0.3s;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+
+}
+
+.loginButton:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background: #eba743;
+}
+
+
+.loginButtonDiv {
+  display: flex;
+  flex-direction: row;
+  /* align-self: center; */
+  position: relative;
+  bottom: 10px;
+  right: 20px;
+  top: 20px;
+}
+
+.loginDiv {
+  text-align: center;
+
+}
+
+.loginForm {
+  display:flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  align-items: center;
+}
+
+.accountButton {
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+  font-size: 1em;
+  font-family: 'Nunito';
+  font-weight: 500;
+  color: #15392f;
+
+}
+
+.accountButton:hover {
+  cursor: pointer;
+}
+
+.buttonDiv {
+  text-align: center;
+  margin-bottom: 5vh;
+}
+
+.searchDiv {
+  position: relative;
+}
+
+.navbarRight {
+  display: flex;
+  gap: 40px;
+  margin-left: 10vw;
+  /* align-items: flex-start; */
+}
+.search-picshow {
+  height: 20px;
+  width: 20px;
+  position: fixed;
+  bottom: 82.7%;
+  right: 5vw;
+  z-index: 1000;
+
 }
 
 
 
 .goog-te-gadget-simple {
-  border: none;
-  background-color: transparent;
-  outline: none !important;
-  margin: 0;
-  position: relative;
-  bottom: 1vh;
+  border: none !important;
+   background-color: transparent !important;
+   outline: none !important;
+   margin: 0;
+   position: relative;
+   bottom: 1vh;
 }
 
+#google_translate_element {
+  background: transparent;
+}
 
-.goog-te-gadget span{
+.goog-te-gadget span {
+  display: none;
+}
+
+.goog-te-gadget-icon {
+  border-radius: 50%;
+  transition-duration: 0.4s;
+}
+
+.goog-te-gadget-icon:hover {
+  transform: scale(1.2)
+}
+
+#:0.targetLanguage {
   display: none;
 }
 
@@ -71,7 +181,7 @@ nav {
 }
 
 .logo {
-  width: min(100%, 100px);
+  width: min(100%, 90px);
 
 }
 
@@ -94,33 +204,36 @@ nav {
 .appName {
   /* text-align: center; */
   align-self: center;
-  width: min(80%, 550px)
+  width: min(80%, 450px)
 }
 
 .searchInput {
   height: 30px;
-  width: 200px;
-  margin-left: 70vw;
-  /* align-self: center; */
+  width: 20vw;
   border-radius: 8px;
   position: fixed;
   z-index: 1000;
-  /* margin-top: 10vh; */
-  bottom: 89vh;
+  bottom: 82.75vh;
+  right: 4vw;
   font-family: 'Nunito', sans-serif;
+  padding-left: 10px;
+  font-size: 1em;
+  font-weight: 600;
 }
 
 .searchInput2 {
   height: 30px;
   width: 200px;
-  margin-left: 70vw;
+  margin-left: 73vw;
   /* align-self: center; */
   border-radius: 8px;
   position: fixed;
   z-index: 1000;
   /* margin-top: 10vh; */
-  bottom: 90.75vh;
+  bottom: 83.75vh;
+  right: 4vw;
   font-family: 'Nunito', sans-serif;
+  padding-left: 10px;
 }
 
 .link {
@@ -132,7 +245,7 @@ nav {
 
 .link:hover {
   transform: scale(1.1);
-  color: white;
+  color: #F2F1DA;
 
 }
 
@@ -142,7 +255,11 @@ nav {
   top: 0;
   opacity: 0.96;
   width: 100%;
+  height: 175px;
   z-index: 999;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .navBar {
@@ -152,6 +269,8 @@ nav {
 
 .body {
   margin-top: 18vh;
+  text-align: center;
+  margin-bottom: 15vh;
 }
 
 .new-container, .reviewDiv {
@@ -162,11 +281,18 @@ nav {
   color: black;
 }
 
+.nameDiv {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .groceryName {
   padding: 0 1vw 1vw 1vw;
   font-size: 1.1em;
   font-weight: 800;
-
+  align-self: center;
 }
 
 .ourProducts {
@@ -176,7 +302,9 @@ nav {
   margin-top: 5vh;
 }
 
-
+.trashIcon {
+  /* transition-duration: 0.3s; */
+}
 
 .trashIcon:hover {
   transform: scale(1.1);
@@ -186,7 +314,7 @@ nav {
 
 .editButton {
   position: relative;
-  top: 4px;
+  top: 5px;
   background-color: transparent;
   background: none;
   transition-duration: 0.2s;
@@ -194,27 +322,29 @@ nav {
 
 .editButton:hover {
   position: relative;
-  top: 4px;
-
+  top: 5px;
   transform: scale(1.05);
+  background-color: transparent;
 }
-
-
 
 .editIcon:hover {
   transform: scale(1.1);
   color: #eb9a86;
   cursor: pointer;
+  background-color: transparent;
+  margin:0;
 }
 
-.middleImageDiv {
-  width: 100vw;
-  text-align: center;
-}
 
-.middleImage {
+
+.carouselContainer {
   width: min(100vw, 1250px);
+}
 
+.carouselContainerDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .groceryContainerDiv {
@@ -222,10 +352,11 @@ nav {
   flex-direction: column;
 }
 
+
 footer {
   background: #b4dbbb;
   padding-top: 1vh;
-  padding-bottom: 10px;
+  padding-bottom: 1vh;
 }
 
 .footerUL {
@@ -238,14 +369,12 @@ footer {
 
 .footerLogoDiv {
   text-align: center;
-  position: relative;
-  bottom: 1.5vh;
-  padding-bottom: 1vh;
 
 }
 
 .footerLogo {
-  width: min(13%, 90px);
+  width: min(15%, 100px);
+
 }
 
 .footerLI {
@@ -258,20 +387,6 @@ footer {
 .footerLI:hover {
   cursor: pointer;
   color: #F2F1DA;
-}
-
-
-.creators {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
-}
-
-.creators a {
-  text-decoration: none;
-  color: #15392f;
-  align-self: center;
 }
 
 .socialIconsDiv {
@@ -291,6 +406,12 @@ footer {
   transform: scale(1.1);
 }
 
+.bottomLine {
+  text-align: center;
+  font-size: 8pt;
+  /* margin-bottom: 3vh; */
+}
+
 .new-container {
   margin-top: 30vh;
   margin-bottom: 20vh;
@@ -302,6 +423,7 @@ footer {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
   font-weight: 600;
+
 }
 
 .addInput2 {
@@ -326,6 +448,7 @@ footer {
   display: flex;
   flex-direction: row;
   gap: 1vw;
+  font-family: 'Nunito', sans-serif;
 }
 
 .submitButton {
@@ -347,6 +470,48 @@ footer {
   background: #eba743;
 }
 
+.detailsButton {
+  align-self: center;
+  padding: 4px;
+  font-family: 'Nunito', sans-serif;
+  transition-duration: 0.3s;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid black;
+  background: #eba743;
+  color:
+}
+
+.detailsButton:hover {
+  transform: scale(1.05);
+  background: #daf2df;
+  cursor: pointer;
+}
+
+
+.logoutButton {
+  padding: 8px;
+  width: 100px;
+  align-self: center;
+  background: #F2F1DA;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  font-family: 'Nunito', sans-serif;
+  transition-duration: 0.3s;
+  font-weight: 600;
+  margin: 3vh 0;
+}
+
+.logoutButton:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+  background: #eba743;
+}
+
+.logoutDiv, .welcomeDiv {
+  text-align: center;
+}
 .checkbox {
   width: 20px;
   height: 20px;
@@ -369,7 +534,112 @@ footer {
 
 }
 
-.filler {
-  height: 363px;
+.middleImageDiv1 {
+  display: flex;
+  flex-direction: column;
+  background: #E1F2DC;
+  /* margin-top: 10px; */
+}
+
+.middleImageDiv2 {
+  display: flex;
+  flex-direction: column;
+  background: #FC8D6A;
+  /* margin-top: 10px; */
+}
+
+
+.middleImageDiv3 {
+  display: flex;
+  flex-direction: column;
   background: #FFF7C9;
+  /* margin-top: 10px; */
+}
+
+
+/* .filler1 {
+height: 20px;
+background: #E1F2DC;
+}
+.filler2 {
+ height: 10px;
+ background: #FC8D6A;
+} */
+
+.filler3 {
+  height: 25px;
+  /* background: #FFF7C9; */
+}
+
+.priceShowButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 70px;
+  margin-bottom: 1vh;
+}
+
+.showButton {
+  font-family: 'Nunito';
+  align-self: center;
+
+}
+
+
+
+.MuiTypography-root h2 {
+  font-family: 'Nunito';
+}
+
+#modal-modal-description {
+  text-align: center;
+
+}
+
+
+
+h4 {
+  font-family: 'Nunito';
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+h4 #text {
+font-family: 'Nunito';
+}
+
+.showButtons {
+  margin-left: 200px;
+}
+
+.showStuff {
+  font-family: 'Nunito';
+}
+
+.showStuffBold {
+    font-family: 'Nunito';
+    font-weight: 700;
+    line-height: 0;
+    font-size: 1.1em;
+}
+
+.showName {
+  font-size: 1.1em;
+}
+
+.imgDiv {
+  text-align: center;
+  width: 100%;
+  background: #F2F1DA;
+  padding-top: 20px;
+
+}
+
+
+
+.itemNumber {
+  align-self: center;
+  font-weight: 600;
+  margin-bottom: 1vh;
+
 }

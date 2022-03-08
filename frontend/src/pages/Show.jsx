@@ -1,30 +1,46 @@
 import {useState} from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import { styled, Box } from '@mui/system';
+import ModalUnstyled from '@mui/base/ModalUnstyled';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Nunito from '../Nunito/static/Nunito-Bold.ttf'
-import '../css/show.css';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
 
+const StyledModal = styled(ModalUnstyled)`
+  position: fixed;
+  z-index: 1300;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Backdrop = styled('div')`
+  z-index: -1;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-tap-highlight-color: transparent;
+`;
 
 const style = {
-
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  fontFamily: 'Nunito-Bold',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-
-  };
-
+  width: 400,
+  bgcolor: '#daf2df',
+  border: '2px solid #eba743',
+  p: 2,
+  px: 4,
+  pb: 3,
+};
 
 const Show = (props) => {
   const [open, setOpen] = useState(false);
@@ -50,66 +66,68 @@ const Show = (props) => {
     }
   }
 
-
   return (
-    <>
-    <Button style = {{color: 'black', fontFamily: 'Nunito', fontWeight: 'bold', backgroundColor: 'transparent'}} onClick={handleOpen}>Item Details</Button>
-    <Modal
-    open={open}
-    style={{background: 'transparent'}}
-    onClose={handleClose}
-    aria-labelledby="modal-modal-title"
-    aria-describedby="modal-modal-description"
-    >
-    <Box className = 'showModal' sx={style}>
-    <Typography  variant="h6" component="h2">
-    <h2 className = "showName">{props.name}</h2>
-    </Typography>
-    <Typography  className = 'modalImage' sx={{ mt: 2 }}>
-    <img src = {props.image}></img>
-    </Typography>
-    <Typography className = "heartAndCart">
-    <IconButton value="check"
-    selected={selected}
-    onChange={() => {
-    setSelected(!selected);}}
-    onClick = {heartColorChange}
-    seletexaria-label="add to favorites">
-        <FavoriteIcon style={{color: heartColor}}/>
-       </IconButton>
+    <div>
+      <button className = 'detailsButton' type="button" onClick={handleOpen}>
+        Item Details
+      </button>
+      <StyledModal
+        aria-labelledby="unstyled-modal-title"
+        aria-describedby="unstyled-modal-description"
+        open={open}
+        onClose={handleClose}
+        BackdropComponent={Backdrop}
+      >
+        <Box sx={style}>
+        <Typography id="modal-modal-title" variant="h6" component="h2">
+        <h2 className = 'showName'>{props.name}</h2>
+        </Typography>
 
-       <IconButton value="check"
-       selected={selected}
-       onChange={() => {
-       setSelected(!selected);}}
-       onClick = {cartColorChange}
-       seletexaria-label="add to cart">
-      <AddShoppingCartIcon style={{color: cartColor}}/>
-          </IconButton>
-      </Typography>
-    <Typography style = {{marginLeft: '8%'}}>
-    <Typography style= {{fontFamily:"Nunito"}}>
-      <br/><h4 className = "showInfo">price:</h4>{props.price}
-    </Typography>
-    <Typography style={{fontFamily:"Nunito"}}>
-    <h4 className = "showInfo">description:</h4>{props.description}
-    </Typography>
-    <Typography>
-      <h4 className = "showInfo">tags:</h4> {props.tag}
-    </Typography><br/>
-    <Typography style={{fontFamily:"Nunito", fontWeight:"700"}}>
-      <br/><p className = "showInfo">{props.inStock}</p>
-    </Typography>
-    <Typography style={{fontFamily:"Nunito", fontWeight:"700"}}>
-      <br/>
-      {props.delivery}
-    </Typography>
-    </Typography>
-    </Box>
-    </Modal>
+        <div className = 'imgDiv'>
+        <img className = 'modalImage' src = {props.image}></img>
 
-  </>
-  )
-};
 
-export default Show;
+
+        <div className = 'showButtons'>
+        <IconButton value="check"
+        selected={selected}
+        onChange={() => {
+        setSelected(!selected);}}
+        onClick = {heartColorChange}
+        seletexaria-label="add to favorites">
+            <FavoriteIcon style={{color: heartColor}}/>
+           </IconButton>
+
+           <IconButton value="check"
+           selected={selected}
+           onChange={() => {
+           setSelected(!selected);}}
+           onClick = {cartColorChange}
+           seletexaria-label="add to cart">
+          <AddShoppingCartIcon style={{color: cartColor}}/>
+              </IconButton>
+        </div>
+        </div>
+
+          <Typography>
+          <h4>Price:</h4><div className = 'showStuff'>{props.price}</div>
+        </Typography>
+        <Typography>
+        <h4>Description:</h4><div className = 'showStuff'>{props.description}</div>
+        </Typography>
+        <Typography>
+          <h4>Tags:</h4><div className = 'showStuff'>{props.tag}</div>
+        </Typography><br/>
+        <Typography>
+          <br/><div className = 'showStuffBold'>{props.inStock}</div>
+        </Typography>
+        <Typography>
+          <br/><div className = 'showStuffBold'>{props.delivery}</div>
+        </Typography>
+        </Box>
+      </StyledModal>
+    </div>
+  );
+}
+
+export default Show

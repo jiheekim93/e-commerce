@@ -9,7 +9,6 @@ import {
   useParams,
 } from "react-router-dom";
 import '../css/create.css';
-
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -77,8 +76,11 @@ const CreateForm = (props) => {
 
   return (
     <>
-    <input className = 'searchInput2' type="text" placeholder="search..."
+    <div className = 'searchDiv'>
+    <input className = 'searchInput' type="text" placeholder="search..."
     ></input>
+    <img className = 'search-picshow' src = 'https://www.freeiconspng.com/thumbs/magnifying-glass-icon/magnifying-glass-icon-13.png'></img>
+    </div>
     <div className = 'new-container'>
     <h2>Add New Item</h2>
     <form className = 'addForm' onSubmit={handleNewGroceryFormSubmit}>

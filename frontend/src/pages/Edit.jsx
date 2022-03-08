@@ -54,6 +54,7 @@ const Edit = (props) => {
 
   const handleNewDeliveryChange = (event)=>{
   setNewDelivery(event.target.checked);
+   console.log(newDelivery)
   }
 
   const handleNewTagChange = (event)=>{
@@ -76,7 +77,6 @@ const Edit = (props) => {
     setNewTag(groceryData.tag)
 
   }
-
 
 
   const handleToggleEdit = (groceryData)=>{
@@ -105,7 +105,7 @@ const Edit = (props) => {
   return (
     <>
     <Grid item xs={3} className = 'editButton' onClick={handleOpen}>
-    <EditIcon className = 'editIcon'/></Grid>
+      <EditIcon className = 'editIcon'/></Grid>
     <Modal
     open={open}
     style={{background: 'transparent'}}
@@ -115,17 +115,23 @@ const Edit = (props) => {
     >
     <Box sx={style}>
     <Typography id="modal-modal-title" variant="h6" component="h2">
-    <h2>Edit a grocery</h2>
+    <h2 className = 'editTitle'>Edit Item</h2>
     <div className = "edit-container">
     <form onSubmit={(e)=>{e.preventDefault();handleToggleEdit(props.grocery)}}>
-      Name: <input type = 'text' onChange={handleNewNameChange}/><br/>
-      Image URL: <input type = 'text' onChange={handleNewImageChange}/><br/>
-      Description: <input type = 'text' onChange={handleNewDescriptionChange}/><br/>
-      Price: <input type = 'text' onChange={handleNewPriceChange}/><br/>
-      In Stock: <input type = 'checkbox' checked = {newStock}  onChange={handleNewStockChange}/><br/>
-      Available for Delivery: <input type = 'checkbox' checked = {newDelivery} onChange={handleNewDeliveryChange}/><br/>
-      Tag: <input type = 'text' onChange={handleNewTagChange}/><br/>
-      <input type = 'submit' value = 'Edit grocery' />
+    <input type = 'text' className = 'addInput' defaultValue = {props.grocery.name} placeholder = 'Item Name...' onChange={handleNewNameChange}/><br/>
+    <input className = 'addInput' type = 'text' placeholder = 'Image URL...' defaultValue = {props.grocery.image} onChange={handleNewImageChange}/><br/>
+    <input className = 'addInput' type = 'text' placeholder = 'Item Description...' defaultValue = {props.grocery.description} onChange={handleNewDescriptionChange}/><br/>
+    <input className = 'addInput' type = 'text' placeholder = 'Price...' defaultValue = {props.grocery.price} onChange={handleNewPriceChange}/><br/>
+    <input className = 'addInput' type = 'text' placeholder = 'Tags...' defaultValue = {props.grocery.tag} onChange={handleNewTagChange}/><br/>
+    <div className = 'stockDelivery2'>
+    <div className = 'stockCheck'>
+    In Stock: <input className = 'checkbox' type = 'checkbox' onChange={handleNewStockChange}/>
+    </div>
+    <div className ='stockCheck'>
+    Available for Delivery: <input className = 'checkbox' type = 'checkbox' onChange={handleNewDeliveryChange}/>
+    </div>
+    </div>
+      <input className = 'submitButton' type = 'submit' value = 'Submit Changes' />
       </form>
       </div>
     </Typography>
