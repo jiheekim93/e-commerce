@@ -1,14 +1,25 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import axios from 'axios'
 import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Grid from '@mui/material/Grid';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Nunito from '../Nunito/static/Nunito-Bold.ttf'
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import CloseIcon from '@mui/icons-material/Close';
+import {
+  Redirect,
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  Switch,
+  useParams
+} from "react-router-dom" ;
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -50,6 +61,21 @@ const Show = (props) => {
   const [heartColor, setHeartColor] = useState('grey')
   const [cartColor, setCartColor] = useState('grey')
 
+
+  const [cart, setCart] = useState([])
+
+
+
+  useEffect(()=>{
+    axios
+    .get('https://stark-shelf-08940.herokuapp.com/cart')
+    .then((response)=>{
+      setCart(response.data);
+    })
+  }, [])
+
+  console.log(props);
+
   const heartColorChange = () => {
     if (heartColor === 'grey') {
       setHeartColor('red')
@@ -57,6 +83,8 @@ const Show = (props) => {
       setHeartColor('grey')
     }
   }
+
+
 
   const cartColorChange = () => {
     if (cartColor === 'grey') {
@@ -66,7 +94,12 @@ const Show = (props) => {
     }
   }
 
+
+
+
   return (
+    <>
+
     <div>
       <button className = 'detailsButton' type="button" onClick={handleOpen}>
         Item Details
@@ -82,6 +115,7 @@ const Show = (props) => {
         <Typography id="modal-modal-title" variant="h6" component="h2">
         <h2 className = 'showName'>{props.name}</h2>
         </Typography>
+        <CloseIcon className = 'closeIcon2' onClick = {handleClose}/>
 
         <div className = 'imgDiv'>
         <img className = 'modalImage' src = {props.image}></img>
@@ -127,6 +161,7 @@ const Show = (props) => {
         </Box>
       </StyledModal>
     </div>
+    </>
   );
 }
 

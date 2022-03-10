@@ -14,6 +14,7 @@ import {
   useParams
 } from "react-router-dom" ;
 import Show from "./pages/Show"
+// import Cart from "./pages/Cart"
 import axios from 'axios'
 import './css/home.css';
 import Edit from "./pages/Edit"
@@ -92,13 +93,11 @@ const App = () => {
       setGroceries(response.data);
     })
   }, [])
-
-
   const handleCreateUser = (event) => {
    event.preventDefault()
    setUsername('')
    setPassword('')
-   axios.post('http://localhost:3000/users/createaccount',
+   axios.post('https://stark-shelf-08940.herokuapp.com/users/createaccount',
    {
      username: username,
      password: password
@@ -118,7 +117,7 @@ const App = () => {
 
   const handleLogin = (event) => {
     event.preventDefault()
-    axios.put('http://localhost:3000/users/login',
+    axios.put('https://stark-shelf-08940.herokuapp.com/users/login',
     {
       username: username,
       password: password
@@ -136,9 +135,8 @@ const App = () => {
         setErrorMessage(response.data)
       }
     }).then(() => {
-      axios.get(`http://localhost:3000/users/findOne/${username}`,
+      axios.get(`https://stark-shelf-08940.herokuapp.com/users/findOne/${username}`,
     ).then((res) => {
-      console.log(res.data);
       setCurrentUser(res.data)
     })
     })
@@ -151,12 +149,12 @@ const App = () => {
   }
 
   const handleToggleForm = (event) => {
-  setToggleError(false)
-  if(toggleLogin === true) {
-   setToggleLogin(false)
-  } else {
-   setToggleLogin(true)
-  }
+    setToggleError(false)
+    if(toggleLogin === true) {
+      setToggleLogin(false)
+    } else {
+      setToggleLogin(true)
+    }
   }
 
   const handleToggleLogout = () => {
@@ -192,29 +190,47 @@ const App = () => {
             <img src ='https://i.imgur.com/eprK5RZ.png' className = 'appName'></img>
           </div>
           <div className = 'loginButtonDiv'>
-          <Login setCurrentUser = {setCurrentUser} currentUser = {currentUser}
-                handleCreateUser = {handleCreateUser} handleLogin = {handleLogin}
-                handleLogout = {handleLogout} handleToggleForm = {handleToggleForm}
-                handleToggleLogout = {handleToggleLogout} toggleLogin = {toggleLogin} toggleLogout = {toggleLogout} username = {username}
-                 setUsername = {setUsername} password = {password} setPassword = {setPassword} groceries = {groceries} setGroceries = {setGroceries} errorMessage = {errorMessage} setErrorMessage = {setErrorMessage} toggleError = {toggleError} setToggleError = {setToggleError}/>
+          <Login setCurrentUser = {setCurrentUser}
+                currentUser = {currentUser}
+                handleCreateUser = {handleCreateUser}
+                handleLogin = {handleLogin}
+                handleLogout = {handleLogout}
+                handleToggleForm = {handleToggleForm}
+                handleToggleLogout = {handleToggleLogout}
+                toggleLogin = {toggleLogin}
+                toggleLogout = {toggleLogout}
+                username = {username}
+                 setUsername = {setUsername}
+                 password = {password}
+                 setPassword = {setPassword}
+                 groceries = {groceries}
+                 setGroceries = {setGroceries}
+                 errorMessage = {errorMessage}
+                 setErrorMessage = {setErrorMessage}
+                 toggleError = {toggleError}
+                 setToggleError = {setToggleError}/>
           </div>
         </div>
         <nav className = 'navBar'>
           <div className = 'navbarRight'>
-            <Link className = 'link' to="/">Home</Link>
+            <Link className = 'link' to="/">Products</Link>
             <Link className = 'link' to="/review">Reviews</Link>
+
+
             <div>
             <>
               {currentUser.username ?
 
-            <Link className = 'link' to="/new">Add Item</Link>
+            <Link className = 'link3' to="/new">Add Item</Link>
             :
             null
           }
           </>
-            <div id="google_translate_element"></div>
           </div>
+
+
           </div>
+          <div id="google_translate_element"></div>
         </nav>
         </div>
       </main>
@@ -223,8 +239,10 @@ const App = () => {
 
       <Routes>
       <Route path="/" element={<Groceries currentUser = {currentUser} setCurrentUser = {setCurrentUser} />}/>
-      <Route path="/review" element={<Reviews />}/>
+    <Route element={<Show groceries = {groceries} setGroceries = {setGroceries}/>}/>
       <Route path="/new" element={<CreateForm />}/>
+
+      <Route path="/review" element={<Reviews />}/>
       </Routes>
 
       </div>
@@ -250,7 +268,7 @@ const App = () => {
       </div>
 
       <div className = 'footerLogoDiv'>
-      <img className = 'footerLogo' src = 'https://i.imgur.com/syW8iwL.png?1'></img>
+        <a href = '/'><img className = 'footerLogo' src = 'https://i.imgur.com/syW8iwL.png?1'></img></a>
       </div>
       <p className = 'bottomLine'>©Website made by <a href = 'https://www.linkedin.com/in/jiheekim03/'>Jihee Kim</a> and <a href = 'https://www.linkedin.com/in/lilychen910/'>Lily Chen</a></p>
 

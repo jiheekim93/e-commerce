@@ -51,7 +51,7 @@ const Groceries = ({currentUser, setCurrentUser}) => {
       <section className = 'body'>
       <div className = 'carouselContainerDiv'>
       <div className = 'carouselContainer'>
-      <Carousel showArrows={true} autoPlay = {true} infiniteLoop = {true} showStatus = {false} useKeyboardArrows = {true}>
+      <Carousel showArrows={true} autoPlay = {true} infiniteLoop = {true} showStatus = {false} useKeyboardArrows = {true} showIndicators = {false}>
       <div className = 'middleImageDiv1'>
       <div className = 'filler1'></div>
       <img className = 'middleImage' src="https://i.imgur.com/LV87Nfn.png?1" />
@@ -93,17 +93,20 @@ const Groceries = ({currentUser, setCurrentUser}) => {
             <div className = 'groceryDiv'>
             <div className = 'nameDiv'><li className = 'groceryName'>{grocery.name}</li></div>
 
-            <img src = {grocery.image} />
+            <img className = 'groceryImage' src = {grocery.image} />
 
             <div className = 'priceShowButton'>
             <li className = 'groceryPrice'>{grocery.price}</li>
 
-            <Show className = 'showButton' name = {grocery.name} image = {grocery.image}
-            description = {grocery.description}
-            tag = {grocery.tag}
-            price = {grocery.price}
-            inStock = {grocery.inStock ? <li>Out of Stock</li> : <li>In Stock</li>}
-            delivery = {grocery.delivery ? <li>Delivery: Unavailable</li> : <li>Delivery: Available</li>}/>
+            <Show
+              className = 'showButton'
+              name = {grocery.name}
+              image = {grocery.image}
+              description = {grocery.description}
+              tag = {grocery.tag}
+              price = {grocery.price}
+              inStock = {grocery.inStock ? <li>Out of Stock</li> : <li>In Stock</li>}
+              delivery = {grocery.delivery ? <li>Delivery: Unavailable</li> : <li>Delivery: Available</li>}/>
             </div>
 
             <div className = "buttons">

@@ -114,7 +114,7 @@ const Login = ({setCurrentUser, currentUser, handleLogout, handleLogin, handleCr
 
          </div>
          </Box>
-            </StyledModal>
+        </StyledModal>
 
     </div>
   );
